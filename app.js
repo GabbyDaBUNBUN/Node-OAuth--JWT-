@@ -12,7 +12,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 // database connection
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+mongoose.connect(dbURI)
     .then((result) => app.listen(3000))
     .catch((err) => console.log(err));
 
