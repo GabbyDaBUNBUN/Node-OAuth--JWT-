@@ -1,3 +1,5 @@
+require("dotenv").config();
+const { dbURI } = process.env;
 const express = require('express');
 const mongoose = require('mongoose');
 
@@ -10,7 +12,6 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 // database connection
-const dbURI = 'mongodb+srv://shaun:test1234@cluster0.del96.mongodb.net/node-auth';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
     .then((result) => app.listen(3000))
     .catch((err) => console.log(err));
